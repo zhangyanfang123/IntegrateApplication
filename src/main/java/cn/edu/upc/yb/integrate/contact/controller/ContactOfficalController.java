@@ -8,8 +8,10 @@ import cn.edu.upc.yb.integrate.contact.repository.ContactUnitRepository;
 import org.apache.poi.hssf.record.formula.functions.Request;
 import org.omg.PortableServer.REQUEST_PROCESSING_POLICY_ID;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by 张艳芳 on 2017/3/25.
@@ -17,7 +19,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 
-
+@RestController
+@RequestMapping("/contact")
 public class ContactOfficalController {
 
     @Autowired
@@ -55,6 +58,7 @@ public class ContactOfficalController {
         contactJobRepository.delete(jobId);
         return  new JsonMes(1,"删除成功");
     }
-
-
+    @GetMapping("/testone") Object one(){
+        return new JsonMes(100,"这是一个测试");
+    }
 }
